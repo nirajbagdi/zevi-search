@@ -1,11 +1,11 @@
 import SearchInput from 'components/SearchInput';
+import PopularSuggestions from 'components/PopularSuggestions';
 
 const App = () => {
 	return (
 		<div className="app">
-			<div className="container">
-				<SearchInput />
-			</div>
+			<SearchInput />
+			<PopularSuggestions />
 		</div>
 	);
 };

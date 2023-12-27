@@ -1,0 +1,36 @@
+{
+	"trends": [
+		{
+			"id": "1",
+			"name": "Shirt with puffed sleeves",
+			"img": "trend-01.png"
+		},
+		{
+			"id": "2",
+			"name": "Linen jumpsuit",
+			"img": "trend-02.png"
+		},
+		{
+			"id": "3",
+			"name": "White formal suit",
+			"img": "trend-03.png"
+		},
+		{
+			"id": "4",
+			"name": "Pattern dresses",
+			"img": "trend-04.png"
+		},
+		{
+			"id": "5",
+			"name": "Leather shirt dress",
+			"img": "trend-05.png"
+		}
+	],
+	"suggestions": [
+		"Striped shirt dress",
+		"Satin shirts",
+		"Denim jumpsuit",
+		"Leather dresses",
+		"Solid tshirts"
+	]
+}

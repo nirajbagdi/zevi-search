@@ -4,12 +4,12 @@ import Container from 'components/Container';
 import styles from 'styles/components/SearchBar.module.scss';
 
 type Props = {
-	onSearch: () => void;
+	onFocus: () => void;
 };
 
-const SearchBar: React.FC<Props> = ({ onSearch }) => (
+const SearchBar: React.FC<Props> = ({ onFocus }) => (
 	<Container size="sm">
-		<form className={styles.form} onClick={onSearch}>
+		<form className={styles.form} onClick={onFocus}>
 			<input type="text" placeholder="Search" />
 			<SearchSVG />
 		</form>

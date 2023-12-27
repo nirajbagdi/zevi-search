@@ -6,9 +6,11 @@ import SuggestionsCard from 'components/SuggestionsCard';
 const App = () => {
 	const [showSuggestions, setShowSuggestions] = useState(false);
 
+	const toggleShowSuggestions = () => setShowSuggestions(show => !show);
+
 	return (
 		<div className="app">
-			<SearchBar onSearch={() => setShowSuggestions(prev => !prev)} />
+			<SearchBar onFocus={toggleShowSuggestions} />
 			<SuggestionsCard show={showSuggestions} />
 		</div>
 	);

@@ -1,13 +1,11 @@
-import SearchInput from 'components/SearchInput';
-import PopularSuggestions from 'components/PopularSuggestions';
+import SearchBar from 'components/SearchBar';
+import SuggestionsCard from 'components/SuggestionsCard';
 
-const App = () => {
-	return (
-		<div className="app">
-			<SearchInput />
-			<PopularSuggestions />
-		</div>
-	);
-};
+const App = () => (
+	<div className="app">
+		<SearchBar />
+		<SuggestionsCard />
+	</div>
+);
 
 export default App;

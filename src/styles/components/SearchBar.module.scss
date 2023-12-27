@@ -9,8 +9,11 @@
 
 	background-color: #fff;
 
+	cursor: pointer;
+
 	input {
 		width: 100%;
+		cursor: pointer;
 
 		&::placeholder {
 			color: hsla(0, 0%, 0%, 0.4);

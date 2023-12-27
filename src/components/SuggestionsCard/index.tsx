@@ -12,14 +12,20 @@ type Props = {
 	show: boolean;
 };
 
+const variants = {
+	hidden: { opacity: 0, y: -20 },
+	visible: { opacity: 1, y: 0 },
+};
+
 const SuggestionsCard: React.FC<Props> = ({ show }) => (
 	<Container>
 		<motion.div
-			initial={{ opacity: 0, y: -20 }}
-			animate={{ opacity: show ? 1 : 0, y: show ? 0 : -20 }}
-			exit={{ opacity: 0, y: -20 }}
-			transition={{ duration: 0.5 }}
 			className={styles.card}
+			variants={variants}
+			initial="hidden"
+			animate={show ? 'visible' : 'hidden'}
+			exit="hidden"
+			transition={{ duration: 0.5 }}
 		>
 			<Trends items={products.trends} show={show} />
 			<Suggestions items={products.suggestions} show={show} />

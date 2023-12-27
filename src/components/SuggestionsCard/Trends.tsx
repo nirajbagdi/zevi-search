@@ -1,5 +1,7 @@
 import { motion } from 'framer-motion';
 
+import { fadeInUpVariants } from 'constants/index';
+
 import styles from 'styles/components/SuggestionsCard.module.scss';
 
 type Props = {
@@ -11,21 +13,28 @@ type Props = {
 	show: boolean;
 };
 
+const variants = {
+	...fadeInUpVariants,
+	hover: {
+		scale: 1.15,
+		transition: {
+			duration: 0.8,
+			ease: 'backOut',
+		},
+	},
+	tap: { scale: 0.98 },
+};
+
 const Trends: React.FC<Props> = ({ items, show }) => {
 	const itemsJSX = items.map(trend => (
 		<motion.article
 			key={trend.id}
-			initial={{ opacity: 0, y: 40 }}
-			animate={{ opacity: show ? 1 : 0, y: show ? 0 : 40 }}
+			variants={variants}
+			initial="hidden"
+			animate={show ? 'visible' : 'hidden'}
+			whileHover="hover"
+			whileTap="tap"
 			transition={{ duration: 0.6 }}
-			whileHover={{
-				scale: 1.15,
-				transition: {
-					duration: 0.8,
-					ease: 'backOut',
-				},
-			}}
-			whileTap={{ scale: 0.98 }}
 		>
 			<img src={require(`assets/${trend.image}`)} alt={trend.name} />
 			<p>{trend.name}</p>

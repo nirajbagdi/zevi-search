@@ -15,6 +15,34 @@ html {
 }
 
 body {
-	min-height: 100vh;
 	font-size: 1.8rem;
+}
+
+input,
+button {
+	font: inherit;
+	outline: none;
+	border: none;
+}
+
+.app {
+	min-height: 100vh;
+
+	background-image: linear-gradient(
+			to right bottom,
+			rgba(255, 255, 255, 0.2),
+			rgba(255, 255, 255, 0.3)
+		),
+		url('../assets/home-bg.jpg');
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
+}
+
+.container {
+	padding-block: 9.6rem;
+
+	max-width: 65rem;
+	margin-inline: auto;
+	padding-inline: 2.4rem;
 }

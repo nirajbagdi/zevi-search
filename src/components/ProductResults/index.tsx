@@ -1,20 +1,34 @@
+import { useState } from 'react';
+
 import ResultsList from './ResultsList';
 import FiltersList from './FiltersList';
 
-import styles from 'styles/components/ProductResults.module.scss';
-import SearchBar from 'components/SearchBar';
+const ProductResults = () => {
+	const [selectedFilters, setSelectedFilters] = useState({
+		brand: null,
+		priceRange: null,
+		rating: null,
+	});
 
-const ProductResults = () => (
-	<div className={styles.container}>
-		<SearchBar className={styles.search} />
+	const handleFilterSelect = (filterType: string, filterValue: string) => {
+		if (
+			selectedFilters.brand === filterValue ||
+			selectedFilters.priceRange === filterValue ||
+			selectedFilters.rating === filterValue
+		) {
+			setSelectedFilters(prevFilters => ({ ...prevFilters, [filterType]: null }));
+			return null;
+		}
 
-		<div className={styles.grid}>
-			<h2>Search Results</h2>
+		setSelectedFilters(prevFilters => ({ ...prevFilters, [filterType]: filterValue }));
+	};
 
-			<FiltersList />
+	return (
+		<>
+			<FiltersList onFilterSelect={handleFilterSelect} />
 			<ResultsList />
-		</div>
-	</div>
-);
+		</>
+	);
+};
 
 export default ProductResults;

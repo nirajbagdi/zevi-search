@@ -74,8 +74,8 @@
 			"id": "5",
 			"image": "result-05.png",
 			"name": "Round neck cotton tee",
-			"originalPrice": 599,
-			"discountedPrice": 549,
+			"originalPrice": 300,
+			"discountedPrice": 230,
 			"rating": 2,
 			"ratingCount": 210
 		},
@@ -83,8 +83,8 @@
 			"id": "6",
 			"image": "result-06.png",
 			"name": "Round neck cotton tee",
-			"originalPrice": 599,
-			"discountedPrice": 549,
+			"originalPrice": 450,
+			"discountedPrice": 399,
 			"rating": 4,
 			"ratingCount": 210
 		},
@@ -92,8 +92,8 @@
 			"id": "7",
 			"image": "result-07.png",
 			"name": "Round neck cotton tee",
-			"originalPrice": 599,
-			"discountedPrice": 549,
+			"originalPrice": 2500,
+			"discountedPrice": 2000,
 			"rating": 5,
 			"ratingCount": 210
 		},

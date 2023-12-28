@@ -11,11 +11,12 @@ const Rating: React.FC<Props> = ({ rating, totalRatings }) => {
 
 	const starsJSX = stars.map((_, idx) => {
 		const currentRating = idx + 1;
+
 		return <StarSVG key={idx} className={currentRating <= rating ? styles.filled : ''} />;
 	});
 
 	return (
-		<div className={styles.rating}>
+		<div className={styles.rating} data-value={rating}>
 			{starsJSX}
 			{totalRatings && <span>({totalRatings})</span>}
 		</div>

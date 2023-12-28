@@ -6,8 +6,9 @@ import styles from 'styles/components/SearchResults.module.scss';
 const SearchResults = () => {
 	return (
 		<div className={styles.container}>
+			<h2>Search Results</h2>
 			<Filters />
-			{/* <Results /> */}
+			<Results />
 		</div>
 	);
 };

@@ -1,7 +1,7 @@
 import { Variants, motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 
-import { fadeInUpVariants } from 'constants/index';
+import { fadeInUpVariants } from 'utils';
 import styles from 'styles/components/Suggestions.module.scss';
 
 type Props = {

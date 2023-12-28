@@ -3,6 +3,8 @@ import { useState } from 'react';
 import SearchBar from 'components/SearchBar';
 import Suggestions from 'components/Suggestions';
 
+import { framerPageTransition } from 'utils';
+
 const Home = () => {
 	const [showSuggestions, setShowSuggestions] = useState(false);
 	const toggleShowSuggestions = () => setShowSuggestions(show => !show);
@@ -15,4 +17,4 @@ const Home = () => {
 	);
 };
 
-export default Home;
+export default framerPageTransition(Home);

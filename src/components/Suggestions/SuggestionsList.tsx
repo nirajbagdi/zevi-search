@@ -1,4 +1,5 @@
 import { Variants, motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 
 import { fadeInUpVariants } from 'constants/index';
 import styles from 'styles/components/Suggestions.module.scss';
@@ -21,16 +22,18 @@ const variants: Variants = {
 
 const SuggestionsList: React.FC<Props> = ({ items, isOpen }) => {
 	const itemsJSX = items.map((suggestion, idx) => (
-		<motion.li
-			key={idx}
-			variants={variants}
-			initial="hidden"
-			animate={isOpen ? 'visible' : 'hidden'}
-			transition={{ duration: 0.6 }}
-			whileHover="hover"
-		>
-			{suggestion}
-		</motion.li>
+		<Link to="/products">
+			<motion.li
+				key={idx}
+				variants={variants}
+				initial="hidden"
+				animate={isOpen ? 'visible' : 'hidden'}
+				transition={{ duration: 0.6 }}
+				whileHover="hover"
+			>
+				{suggestion}
+			</motion.li>
+		</Link>
 	));
 
 	return (

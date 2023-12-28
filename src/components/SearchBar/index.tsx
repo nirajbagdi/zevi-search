@@ -1,3 +1,5 @@
+import { useNavigate } from 'react-router-dom';
+
 import { ReactComponent as SearchSVG } from 'assets/search.svg';
 import Container from 'components/Container';
 
@@ -8,13 +10,26 @@ type Props = {
 	className?: string;
 };
 
-const SearchBar: React.FC<Props> = ({ onFocus, className }) => (
-	<Container size="sm">
-		<form className={`${styles.form} ${className || ''}`} onClick={onFocus}>
-			<input type="text" placeholder="Search" />
-			<SearchSVG />
-		</form>
-	</Container>
-);
+const SearchBar: React.FC<Props> = ({ onFocus, className }) => {
+	const navigate = useNavigate();
+
+	const handleFormSubmit = (event: React.FormEvent) => {
+		event.preventDefault();
+		navigate('/products');
+	};
+
+	return (
+		<Container size="sm">
+			<form
+				className={`${styles.form} ${className || ''}`}
+				onClick={onFocus}
+				onSubmit={handleFormSubmit}
+			>
+				<input type="text" placeholder="Search" />
+				<SearchSVG />
+			</form>
+		</Container>
+	);
+};
 
 export default SearchBar;

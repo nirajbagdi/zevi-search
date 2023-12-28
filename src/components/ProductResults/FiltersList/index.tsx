@@ -1,4 +1,4 @@
-import Rating from './Rating';
+import Rating from '../Rating';
 import FilterItem from './FilterItem';
 
 import styles from 'styles/components/ProductResults.module.scss';

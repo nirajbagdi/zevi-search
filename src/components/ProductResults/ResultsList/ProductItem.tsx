@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 
-import Rating from './Rating';
+import Rating from '../Rating';
 import { ReactComponent as HeartSVG } from 'assets/heart.svg';
 
 import styles from 'styles/components/ProductResults.module.scss';

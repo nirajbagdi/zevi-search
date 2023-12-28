@@ -22,9 +22,8 @@ const variants: Variants = {
 
 const SuggestionsList: React.FC<Props> = ({ items, isOpen }) => {
 	const itemsJSX = items.map((suggestion, idx) => (
-		<Link to="/products">
+		<Link key={idx} to="/products">
 			<motion.li
-				key={idx}
 				variants={variants}
 				initial="hidden"
 				animate={isOpen ? 'visible' : 'hidden'}

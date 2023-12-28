@@ -27,9 +27,8 @@ const variants: Variants = {
 
 const TrendsList: React.FC<Props> = ({ items, isOpen }) => {
 	const itemsJSX = items.map(trend => (
-		<Link to="/products">
+		<Link key={trend.id} to="/products">
 			<motion.article
-				key={trend.id}
 				variants={variants}
 				initial="hidden"
 				animate={isOpen ? 'visible' : 'hidden'}

@@ -32,5 +32,79 @@
 		"Denim jumpsuit",
 		"Leather dresses",
 		"Solid tshirts"
+	],
+	"items": [
+		{
+			"id": "1",
+			"image": "result-01.png",
+			"name": "Round neck cotton tee",
+			"originalPrice": 599,
+			"discountedPrice": 549,
+			"rating": 5,
+			"ratingCount": 210
+		},
+		{
+			"id": "2",
+			"image": "result-02.png",
+			"name": "High waist trousers",
+			"originalPrice": 999,
+			"discountedPrice": 749,
+			"rating": 4,
+			"ratingCount": 210
+		},
+		{
+			"id": "3",
+			"image": "result-03.png",
+			"name": "High neck pullover",
+			"originalPrice": 899,
+			"discountedPrice": 849,
+			"rating": 2,
+			"ratingCount": 210
+		},
+		{
+			"id": "4",
+			"image": "result-04.png",
+			"name": "Satin jumpsuit",
+			"originalPrice": 650,
+			"discountedPrice": 549,
+			"rating": 3,
+			"ratingCount": 210
+		},
+		{
+			"id": "5",
+			"image": "result-05.png",
+			"name": "Round neck cotton tee",
+			"originalPrice": 599,
+			"discountedPrice": 549,
+			"rating": 2,
+			"ratingCount": 210
+		},
+		{
+			"id": "6",
+			"image": "result-06.png",
+			"name": "Round neck cotton tee",
+			"originalPrice": 599,
+			"discountedPrice": 549,
+			"rating": 4,
+			"ratingCount": 210
+		},
+		{
+			"id": "7",
+			"image": "result-07.png",
+			"name": "Round neck cotton tee",
+			"originalPrice": 599,
+			"discountedPrice": 549,
+			"rating": 5,
+			"ratingCount": 210
+		},
+		{
+			"id": "8",
+			"image": "result-08.png",
+			"name": "Round neck cotton tee",
+			"originalPrice": 599,
+			"discountedPrice": 549,
+			"rating": 3,
+			"ratingCount": 210
+		}
 	]
 }

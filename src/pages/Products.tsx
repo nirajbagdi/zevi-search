@@ -1,4 +1,4 @@
-import SearchResults from 'components/SearchResults';
+import ProductResults from 'components/ProductResults';
 
-const Products = () => <SearchResults />;
+const Products = () => <ProductResults />;
 export default Products;

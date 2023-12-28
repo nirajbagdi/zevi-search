@@ -2,10 +2,9 @@ import { useState } from 'react';
 import { motion } from 'framer-motion';
 
 import Rating from './Rating';
-
 import { ReactComponent as HeartSVG } from 'assets/heart.svg';
 
-import styles from 'styles/components/SearchResults.module.scss';
+import styles from 'styles/components/ProductResults.module.scss';
 
 type Props = {
 	product: {
@@ -18,10 +17,33 @@ type Props = {
 	};
 };
 
-const Product: React.FC<Props> = ({ product }) => {
+const ProductItem: React.FC<Props> = ({ product }) => {
 	const [hasLiked, setHasLiked] = useState(false);
 
 	const toggleHasLiked = () => setHasLiked(liked => !liked);
+
+	const actionsJSX = (
+		<div className={styles.actions}>
+			<motion.button
+				whileTap={{ scale: 3 }}
+				transition={{ duration: 0.5 }}
+				className={`${styles.heartBtn} ${hasLiked ? styles.filled : ''}`}
+				aria-label="Add to favorites"
+				onClick={toggleHasLiked}
+			>
+				<HeartSVG />
+			</motion.button>
+
+			<button className={styles.viewBtn}>View Product</button>
+		</div>
+	);
+
+	const priceJSX = (
+		<div className={styles.priceContainer}>
+			<span>Rs.{product.originalPrice}</span>
+			<span>Rs.{product.discountedPrice}</span>
+		</div>
+	);
 
 	return (
 		<article className={styles.product}>
@@ -31,29 +53,14 @@ const Product: React.FC<Props> = ({ product }) => {
 					<figcaption>{product.name}</figcaption>
 				</figure>
 
-				<div className={styles.actions}>
-					<motion.button
-						whileTap={{ scale: 3 }}
-						transition={{ duration: 0.5 }}
-						className={`${styles.heartBtn} ${hasLiked ? styles.filled : ''}`}
-						aria-label="Add to favorites"
-						onClick={toggleHasLiked}
-					>
-						<HeartSVG />
-					</motion.button>
-
-					<button className={styles.viewBtn}>View Product</button>
-				</div>
+				{actionsJSX}
 			</section>
 
-			<div className={styles.priceContainer}>
-				<span>Rs.{product.originalPrice}</span>
-				<span>Rs.{product.discountedPrice}</span>
-			</div>
+			{priceJSX}
 
 			<Rating rating={product.rating} totalRatings={product.ratingCount} />
 		</article>
 	);
 };
 
-export default Product;
+export default ProductItem;

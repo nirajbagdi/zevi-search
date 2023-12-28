@@ -1,8 +1,7 @@
 import Rating from './Rating';
-
 import { ReactComponent as ArrowDown } from 'assets/arrow-down.svg';
 
-import styles from 'styles/components/SearchResults.module.scss';
+import styles from 'styles/components/ProductResults.module.scss';
 
 const Filters = () => {
 	return (

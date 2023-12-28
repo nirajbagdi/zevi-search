@@ -4,6 +4,12 @@
 	.search {
 		box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.5);
 		padding: 1rem 2.4rem;
+		margin-inline: auto;
+		max-width: 85%;
+
+		@media (max-width: 700px) {
+			max-width: 100%;
+		}
 	}
 }
 

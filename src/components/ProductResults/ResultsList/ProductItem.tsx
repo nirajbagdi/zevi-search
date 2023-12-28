@@ -1,20 +1,15 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 
+import { ProductType } from 'models';
+
 import Rating from '../Rating';
 import { ReactComponent as HeartSVG } from 'assets/heart.svg';
 
 import styles from 'styles/components/ProductResults.module.scss';
 
 type Props = {
-	product: {
-		image: string;
-		name: string;
-		originalPrice: number;
-		discountedPrice: number;
-		rating: number;
-		ratingCount: number;
-	};
+	product: ProductType;
 };
 
 const ProductItem: React.FC<Props> = ({ product }) => {
@@ -40,8 +35,8 @@ const ProductItem: React.FC<Props> = ({ product }) => {
 
 	const priceJSX = (
 		<div className={styles.priceContainer}>
-			<span>Rs.{product.originalPrice}</span>
-			<span>Rs.{product.discountedPrice}</span>
+			<span>Rs.{product.price.original}</span>
+			<span>Rs.{product.price.discounted}</span>
 		</div>
 	);
 
@@ -49,7 +44,7 @@ const ProductItem: React.FC<Props> = ({ product }) => {
 		<article className={styles.product}>
 			<section className={styles.imgContainer}>
 				<figure>
-					<img src={require(`assets/${product.image}`)} alt={product.name} />
+					<img src={product.image} alt={product.name} />
 					<figcaption>{product.name}</figcaption>
 				</figure>
 
@@ -58,7 +53,7 @@ const ProductItem: React.FC<Props> = ({ product }) => {
 
 			{priceJSX}
 
-			<Rating rating={product.rating} totalRatings={product.ratingCount} />
+			<Rating rating={product.rating.value} totalRatings={product.rating.noOfRatings} />
 		</article>
 	);
 };

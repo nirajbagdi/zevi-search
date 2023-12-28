@@ -2,14 +2,12 @@ import { Variants, motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 
 import { fadeInUpVariants } from 'utils';
+import { ProductType } from 'models';
+
 import styles from 'styles/components/Suggestions.module.scss';
 
 type Props = {
-	items: {
-		id: string;
-		name: string;
-		image: string;
-	}[];
+	items: ProductType[];
 	isOpen: boolean;
 };
 
@@ -26,8 +24,8 @@ const variants: Variants = {
 };
 
 const TrendsList: React.FC<Props> = ({ items, isOpen }) => {
-	const itemsJSX = items.map(trend => (
-		<Link key={trend.id} to="/products">
+	const itemsJSX = items.map(product => (
+		<Link key={product.id} to="/products">
 			<motion.article
 				variants={variants}
 				initial="hidden"
@@ -36,8 +34,8 @@ const TrendsList: React.FC<Props> = ({ items, isOpen }) => {
 				whileHover="hover"
 				whileTap="tap"
 			>
-				<img src={require(`assets/${trend.image}`)} alt={trend.name} />
-				<p>{trend.name}</p>
+				<img src={product.image} alt={product.name} />
+				<p>{product.name}</p>
 			</motion.article>
 		</Link>
 	));

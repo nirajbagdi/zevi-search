@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion';
+import { Variants, motion } from 'framer-motion';
 
 import Container from 'components/Container';
 import Trends from './Trends';
@@ -12,9 +12,9 @@ type Props = {
 	show: boolean;
 };
 
-const variants = {
-	hidden: { opacity: 0, y: -20 },
-	visible: { opacity: 1, y: 0 },
+const variants: Variants = {
+	hidden: { opacity: 0, y: -20, visibility: 'hidden' },
+	visible: { opacity: 1, y: 0, visibility: 'visible' },
 };
 
 const SuggestionsCard: React.FC<Props> = ({ show }) => (

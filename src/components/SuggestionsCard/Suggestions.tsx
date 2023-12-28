@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion';
+import { Variants, motion } from 'framer-motion';
 
 import { fadeInUpVariants } from 'constants/index';
 
@@ -9,7 +9,7 @@ type Props = {
 	show: boolean;
 };
 
-const variants = {
+const variants: Variants = {
 	...fadeInUpVariants,
 	hover: {
 		x: 10,

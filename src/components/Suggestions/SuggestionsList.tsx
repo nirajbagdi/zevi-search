@@ -1,12 +1,11 @@
 import { Variants, motion } from 'framer-motion';
 
 import { fadeInUpVariants } from 'constants/index';
-
-import styles from 'styles/components/SuggestionsCard.module.scss';
+import styles from 'styles/components/Suggestions.module.scss';
 
 type Props = {
 	items: string[];
-	show: boolean;
+	isOpen: boolean;
 };
 
 const variants: Variants = {
@@ -20,15 +19,15 @@ const variants: Variants = {
 	},
 };
 
-const Suggestions: React.FC<Props> = ({ items, show }) => {
+const SuggestionsList: React.FC<Props> = ({ items, isOpen }) => {
 	const itemsJSX = items.map((suggestion, idx) => (
 		<motion.li
 			key={idx}
 			variants={variants}
 			initial="hidden"
-			animate={show ? 'visible' : 'hidden'}
-			whileHover="hover"
+			animate={isOpen ? 'visible' : 'hidden'}
 			transition={{ duration: 0.6 }}
+			whileHover="hover"
 		>
 			{suggestion}
 		</motion.li>
@@ -42,4 +41,4 @@ const Suggestions: React.FC<Props> = ({ items, show }) => {
 	);
 };
 
-export default Suggestions;
+export default SuggestionsList;

@@ -1,7 +1,7 @@
 import { useState } from 'react';
 
 import SearchBar from 'components/SearchBar';
-import SuggestionsCard from 'components/SuggestionsCard';
+import Suggestions from 'components/Suggestions';
 
 const Home = () => {
 	const [showSuggestions, setShowSuggestions] = useState(false);
@@ -10,7 +10,7 @@ const Home = () => {
 	return (
 		<div className="app">
 			<SearchBar onFocus={toggleShowSuggestions} />
-			<SuggestionsCard show={showSuggestions} />
+			<Suggestions isOpen={showSuggestions} />
 		</div>
 	);
 };

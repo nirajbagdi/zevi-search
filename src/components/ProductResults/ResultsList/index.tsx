@@ -1,18 +1,17 @@
-import { useAppCtx } from 'store/context';
 import ProductItem from './ProductItem';
-
+import { ProductType } from 'models';
 import styles from 'styles/components/ProductResults.module.scss';
 
-const ResultsList = () => {
-	const { products } = useAppCtx();
-
-	return (
-		<section className={styles.results}>
-			{products.map(product => (
-				<ProductItem key={product.id} product={product} />
-			))}
-		</section>
-	);
+type Props = {
+	items: ProductType[];
 };
+
+const ResultsList: React.FC<Props> = ({ items }) => (
+	<section className={styles.results}>
+		{items.map(product => (
+			<ProductItem key={product.id} product={product} />
+		))}
+	</section>
+);
 
 export default ResultsList;

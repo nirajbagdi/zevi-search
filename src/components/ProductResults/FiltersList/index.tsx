@@ -12,7 +12,7 @@ const Filters: React.FC<Props> = ({ onFilterSelect }) => {
 		const currentEl = event.target;
 
 		const filterType = currentEl.getAttribute('name');
-		const filterValue = currentEl.closest('[data-value]')?.getAttribute('data-value');
+		const filterValue = currentEl.parentElement?.getAttribute('data-value');
 
 		if (!filterType || !filterValue) return null;
 		onFilterSelect(filterType, filterValue);

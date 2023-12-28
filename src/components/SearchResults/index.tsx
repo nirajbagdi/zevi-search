@@ -7,7 +7,7 @@ const SearchResults = () => {
 	return (
 		<div className={styles.container}>
 			<Filters />
-			<Results />
+			{/* <Results /> */}
 		</div>
 	);
 };

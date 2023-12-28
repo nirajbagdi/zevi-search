@@ -139,6 +139,10 @@ h2 {
 				opacity: 0;
 				transform: translateY(5px);
 				transition: all 0.3s;
+
+				@media (max-width: 800px) {
+					top: 26.3rem;
+				}
 			}
 		}
 	}

@@ -11,8 +11,8 @@ const App = () => {
 
 	return (
 		<div>
-			{/* <SearchBar onFocus={toggleShowSuggestions} />
-			<SuggestionsCard show={showSuggestions} /> */}
+			{/* <SearchBar onFocus={toggleShowSuggestions} /> */}
+			{/* <SuggestionsCard show={showSuggestions} /> */}
 			<SearchResults />
 		</div>
 	);

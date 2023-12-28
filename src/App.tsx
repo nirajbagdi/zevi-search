@@ -1,21 +1,13 @@
-import { useState } from 'react';
+import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 
-import SearchBar from 'components/SearchBar';
-import SuggestionsCard from 'components/SuggestionsCard';
-import SearchResults from 'components/SearchResults';
+import Home from 'pages/Home';
+import Products from 'pages/Products';
 
-const App = () => {
-	const [showSuggestions, setShowSuggestions] = useState(false);
+const router = createBrowserRouter([
+	{ path: '/', element: <Home /> },
+	{ path: '/products', element: <Products /> },
+]);
 
-	const toggleShowSuggestions = () => setShowSuggestions(show => !show);
-
-	return (
-		<div>
-			{/* <SearchBar onFocus={toggleShowSuggestions} /> */}
-			{/* <SuggestionsCard show={showSuggestions} /> */}
-			<SearchResults />
-		</div>
-	);
-};
+const App = () => <RouterProvider router={router} />;
 
 export default App;

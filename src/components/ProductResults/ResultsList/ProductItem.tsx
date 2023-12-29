@@ -17,6 +17,11 @@ const ProductItem: React.FC<Props> = ({ product }) => {
 
 	const toggleHasLiked = () => setHasLiked(liked => !liked);
 
+	const handleImageError = (event: React.SyntheticEvent<HTMLImageElement, Event>) => {
+		const articleElement = event.currentTarget.closest('article');
+		articleElement!.style.display = 'none';
+	};
+
 	const actionsJSX = (
 		<div className={styles.actions}>
 			<motion.button
@@ -44,7 +49,7 @@ const ProductItem: React.FC<Props> = ({ product }) => {
 		<article className={styles.product}>
 			<section className={styles.imgContainer}>
 				<figure>
-					<img src={product.image} alt={product.name} />
+					<img src={product.image} alt={product.name} onError={handleImageError} />
 					<figcaption>{product.name}</figcaption>
 				</figure>
 

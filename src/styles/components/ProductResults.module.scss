@@ -7,6 +7,10 @@
 		margin-inline: auto;
 		max-width: 85%;
 
+		input {
+			pointer-events: all !important;
+		}
+
 		@media (max-width: 700px) {
 			max-width: 100%;
 		}

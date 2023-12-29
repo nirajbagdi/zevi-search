@@ -1,6 +1,6 @@
 import { ProductType, FetchedData } from 'models';
 
-const URL = 'https://api.escuelajs.co/api/v1/products?price_min=200&price_max=3500';
+const URL = 'https://api.escuelajs.co/api/v1/products';
 
 export const fetchProducts = async (): Promise<ProductType[]> => {
 	const response = await fetch(URL);

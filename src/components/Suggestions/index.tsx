@@ -31,7 +31,7 @@ const Suggestions: React.FC<Props> = ({ isOpen }) => {
 				exit="hidden"
 			>
 				<TrendsList items={products.slice(0, 5)} isOpen={isOpen} />
-				<SuggestionsList items={products.slice(5, 10)} isOpen={isOpen} />
+				<SuggestionsList items={products.slice(0, 5)} isOpen={isOpen} />
 			</motion.div>
 		</Container>
 	);

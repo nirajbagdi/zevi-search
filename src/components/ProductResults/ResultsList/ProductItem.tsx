@@ -58,7 +58,7 @@ const ProductItem: React.FC<Props> = ({ product }) => {
 
 			{priceJSX}
 
-			<Rating rating={product.rating.value} totalRatings={product.rating.count} />
+			<Rating value={product.rating.value} count={product.rating.count} />
 		</article>
 	);
 };

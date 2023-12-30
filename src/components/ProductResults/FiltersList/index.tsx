@@ -44,11 +44,11 @@ const Filters: React.FC<Props> = ({ onFilterSelect }) => {
 				title="Ratings"
 				name="rating"
 				items={[
-					{ value: '5', content: <Rating rating={5} /> },
-					{ value: '4', content: <Rating rating={4} /> },
-					{ value: '3', content: <Rating rating={3} /> },
-					{ value: '2', content: <Rating rating={2} /> },
-					{ value: '1', content: <Rating rating={1} /> },
+					{ value: '5', content: <Rating value={5} /> },
+					{ value: '4', content: <Rating value={4} /> },
+					{ value: '3', content: <Rating value={3} /> },
+					{ value: '2', content: <Rating value={2} /> },
+					{ value: '1', content: <Rating value={1} /> },
 				]}
 				onFilterChange={handleFilterChange}
 			/>

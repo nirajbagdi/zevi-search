@@ -1,12 +1,13 @@
-import { ProductType, FetchedData } from 'models';
+import { Product, FetchedDataResponse } from 'models';
+import { randomIntFromRange } from 'utils';
 
 const URL = 'https://api.escuelajs.co/api/v1/products';
 
-export const fetchProducts = async (): Promise<ProductType[]> => {
+export const fetchProducts = async (): Promise<Product[]> => {
 	const response = await fetch(URL);
-	const data: FetchedData = await response.json();
+	const fetchedData: FetchedDataResponse = await response.json();
 
-	const products: ProductType[] = data.map(result => ({
+	const products: Product[] = fetchedData.map(result => ({
 		id: result.id + '',
 		name: result.title,
 		image: result.images[0],
@@ -17,8 +18,8 @@ export const fetchProducts = async (): Promise<ProductType[]> => {
 		},
 
 		rating: {
-			value: Math.floor(Math.random() * 5) + 1,
-			noOfRatings: 210,
+			value: randomIntFromRange(1, 5),
+			count: randomIntFromRange(200, 300),
 		},
 	}));
 

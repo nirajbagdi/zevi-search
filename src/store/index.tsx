@@ -2,12 +2,12 @@ import { useEffect, useState } from 'react';
 
 import { AppContext } from './context';
 import { fetchProducts } from 'api';
-import { ProductType } from 'models';
+import { Product } from 'models';
 
 type Props = { children: React.ReactNode };
 
 const AppProvider: React.FC<Props> = ({ children }) => {
-	const [products, setProducts] = useState<ProductType[]>([]);
+	const [products, setProducts] = useState<Product[]>([]);
 
 	useEffect(() => {
 		(async () => {

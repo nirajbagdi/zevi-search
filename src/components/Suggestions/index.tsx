@@ -20,6 +20,13 @@ const variants: Variants = {
 const Suggestions: React.FC<Props> = ({ isOpen }) => {
 	const { products } = useAppCtx();
 
+	const getTrendItems = () => products.slice(0, 5);
+
+	const getSuggestionItems = () => {
+		const items = products.slice(5, 10);
+		return items.length ? items : getTrendItems();
+	};
+
 	return (
 		<Container>
 			<motion.div
@@ -30,8 +37,8 @@ const Suggestions: React.FC<Props> = ({ isOpen }) => {
 				transition={{ duration: 0.5 }}
 				exit="hidden"
 			>
-				<TrendsList items={products.slice(0, 5)} isOpen={isOpen} />
-				<SuggestionsList items={products.slice(0, 5)} isOpen={isOpen} />
+				<TrendsList items={getTrendItems()} isOpen={isOpen} />
+				<SuggestionsList items={getSuggestionItems()} isOpen={isOpen} />
 			</motion.div>
 		</Container>
 	);

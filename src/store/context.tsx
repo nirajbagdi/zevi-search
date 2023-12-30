@@ -1,8 +1,8 @@
 import { createContext, useContext } from 'react';
-import { ProductType } from 'models';
+import { Product } from 'models';
 
 type ContextState = {
-	products: ProductType[];
+	products: Product[];
 };
 
 const initialState: ContextState = {

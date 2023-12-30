@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 
-import { ProductType } from 'models';
+import { Product } from 'models';
 
 import Rating from '../Rating';
 import { ReactComponent as HeartSVG } from 'assets/heart.svg';
@@ -9,7 +9,7 @@ import { ReactComponent as HeartSVG } from 'assets/heart.svg';
 import styles from 'styles/components/ProductResults.module.scss';
 
 type Props = {
-	product: ProductType;
+	product: Product;
 };
 
 const ProductItem: React.FC<Props> = ({ product }) => {
@@ -58,7 +58,7 @@ const ProductItem: React.FC<Props> = ({ product }) => {
 
 			{priceJSX}
 
-			<Rating rating={product.rating.value} totalRatings={product.rating.noOfRatings} />
+			<Rating rating={product.rating.value} totalRatings={product.rating.count} />
 		</article>
 	);
 };

@@ -2,12 +2,12 @@ import { Variants, motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 
 import { fadeInUpVariants } from 'utils';
-import { ProductType } from 'models';
+import { Product } from 'models';
 
 import styles from 'styles/components/Suggestions.module.scss';
 
 type Props = {
-	items: ProductType[];
+	items: Product[];
 	isOpen: boolean;
 };
 

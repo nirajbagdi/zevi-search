@@ -1,7 +1,8 @@
 import ProductResults from 'components/ProductResults';
 import SearchBar from 'components/SearchBar';
 
-import { framerPageTransition } from 'utils';
+import { pageTransition } from 'utils';
+
 import styles from 'styles/components/ProductResults.module.scss';
 
 const Products = () => (
@@ -15,4 +16,4 @@ const Products = () => (
 	</div>
 );
 
-export default framerPageTransition(Products);
+export default pageTransition(Products);

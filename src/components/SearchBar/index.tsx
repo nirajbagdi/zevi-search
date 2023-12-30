@@ -6,11 +6,11 @@ import Container from 'components/Container';
 import styles from 'styles/components/SearchBar.module.scss';
 
 type Props = {
-	onFocus?: () => void;
 	className?: string;
+	onFocus?: () => void;
 };
 
-const SearchBar: React.FC<Props> = ({ onFocus, className }) => {
+const SearchBar: React.FC<Props> = ({ className, onFocus }) => {
 	const navigate = useNavigate();
 
 	const handleFormSubmit = (event: React.FormEvent) => {

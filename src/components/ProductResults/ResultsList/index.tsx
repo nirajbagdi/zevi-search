@@ -1,9 +1,9 @@
 import ProductItem from './ProductItem';
-import { ProductType } from 'models';
+import { Product } from 'models';
 import styles from 'styles/components/ProductResults.module.scss';
 
 type Props = {
-	items: ProductType[];
+	items: Product[];
 };
 
 const ResultsList: React.FC<Props> = ({ items }) => (

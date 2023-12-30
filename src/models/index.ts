@@ -1,4 +1,4 @@
-export type ProductType = {
+export type Product = {
 	id: string;
 	name: string;
 	image: string;
@@ -10,11 +10,11 @@ export type ProductType = {
 
 	rating: {
 		value: number;
-		noOfRatings: number;
+		count: number;
 	};
 };
 
-export type FetchedData = {
+export type FetchedDataResponse = {
 	id: number;
 	title: string;
 	price: number;

@@ -5,7 +5,11 @@ export const fadeInUpVariants = {
 	visible: { opacity: 1, y: 0 },
 };
 
-export const framerPageTransition = OgComponent => {
+export const randomIntFromRange = (min, max) => {
+	return Math.floor(Math.random() * (max - min + 1) + min);
+};
+
+export const pageTransition = OgComponent => {
 	return () => (
 		<>
 			<OgComponent />

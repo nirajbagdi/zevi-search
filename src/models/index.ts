@@ -14,6 +14,12 @@ export type Product = {
 	};
 };
 
+export type ProductFilters = {
+	brand: string | null;
+	rating: string | null;
+	priceRange: string | null;
+};
+
 export type FetchedDataResponse = {
 	id: number;
 	title: string;

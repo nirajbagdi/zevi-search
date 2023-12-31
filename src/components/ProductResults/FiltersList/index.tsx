@@ -1,21 +1,40 @@
 import Rating from '../Rating';
 import FilterItem from './FilterItem';
 
+import { ProductFilters } from 'models';
+import { productBrands, productPriceRanges, productRatingLevels } from 'constants/index';
+
 import styles from 'styles/components/ProductResults.module.scss';
 
 type Props = {
-	onFilterSelect: (filterType: string, filterValue: string) => void;
+	onFilterSelect: (type: keyof ProductFilters, value: string) => void;
 };
 
 const Filters: React.FC<Props> = ({ onFilterSelect }) => {
+	const brandItems = productBrands.map(brand => ({
+		value: brand,
+		content: brand,
+	}));
+
+	const priceRangeItems = Object.keys(productPriceRanges).map(priceStr => ({
+		value: priceStr,
+		content: priceStr,
+	}));
+
+	const ratingItems = productRatingLevels.map(rating => ({
+		value: rating + '',
+		content: <Rating value={rating} />,
+	}));
+
 	const handleFilterChange = (event: React.ChangeEvent) => {
 		const currentEl = event.target;
 
-		const filterType = currentEl.getAttribute('name');
-		const filterValue = currentEl.parentElement?.getAttribute('data-value');
+		const type = currentEl.getAttribute('name');
+		const value = currentEl.parentElement?.getAttribute('data-value');
 
-		if (!filterType || !filterValue) return null;
-		onFilterSelect(filterType, filterValue);
+		if (!type || !value) return null;
+
+		onFilterSelect(type as keyof ProductFilters, value);
 	};
 
 	return (
@@ -23,33 +42,21 @@ const Filters: React.FC<Props> = ({ onFilterSelect }) => {
 			<FilterItem
 				title="Brand"
 				name="brand"
-				items={[
-					{ value: 'Mango', content: 'Mango' },
-					{ value: 'HM', content: 'H&M' },
-				]}
+				items={brandItems}
 				onFilterChange={handleFilterChange}
 			/>
 
 			<FilterItem
 				title="Price Range"
 				name="priceRange"
-				items={[
-					{ value: 'Under 500', content: 'Under 500' },
-					{ value: '1000 to 3000', content: '1000 to 3000' },
-				]}
+				items={priceRangeItems}
 				onFilterChange={handleFilterChange}
 			/>
 
 			<FilterItem
 				title="Ratings"
 				name="rating"
-				items={[
-					{ value: '5', content: <Rating value={5} /> },
-					{ value: '4', content: <Rating value={4} /> },
-					{ value: '3', content: <Rating value={3} /> },
-					{ value: '2', content: <Rating value={2} /> },
-					{ value: '1', content: <Rating value={1} /> },
-				]}
+				items={ratingItems}
 				onFilterChange={handleFilterChange}
 			/>
 		</section>

@@ -1,46 +1,51 @@
 import { useState } from 'react';
 
 import { useAppCtx } from 'store/context';
+import { Product, ProductFilters } from 'models';
+import { productPriceRanges } from 'constants/index';
 
 import ResultsList from './ResultsList';
 import FiltersList from './FiltersList';
 
 const ProductResults = () => {
-	const [selectedFilters, setSelectedFilters] = useState({
+	const [filters, setFilters] = useState<ProductFilters>({
 		brand: null,
-		priceRange: null,
 		rating: null,
+		priceRange: null,
 	});
 
 	const { products } = useAppCtx();
 
-	const filteredProducts = products.filter(product => {
-		const isRatingMatch = selectedFilters.rating
-			? product.rating.value === +selectedFilters.rating
-			: true;
-
-		const isPriceMatch =
-			selectedFilters.priceRange === 'Under 500'
-				? product.price.discounted <= 500
-				: selectedFilters.priceRange === '1000 to 3000'
-				? product.price.discounted >= 1000 && product.price.discounted <= 3000
-				: true;
-
-		return isRatingMatch && isPriceMatch;
-	});
-
-	const handleFilterSelect = (filterType: string, filterValue: string) => {
-		if (
-			selectedFilters.brand === filterValue ||
-			selectedFilters.priceRange === filterValue ||
-			selectedFilters.rating === filterValue
-		) {
-			setSelectedFilters(prevFilters => ({ ...prevFilters, [filterType]: null }));
-			return null;
-		}
-
-		setSelectedFilters(prevFilters => ({ ...prevFilters, [filterType]: filterValue }));
+	const handleFilterSelect = (type: keyof ProductFilters, value: string) => {
+		setFilters(prevFilters => ({
+			...prevFilters,
+			[type]: prevFilters[type] === value ? null : value,
+		}));
 	};
+
+	const isMatchingRating = (product: Product) => {
+		const { rating } = filters;
+		return rating ? product.rating.value === +filters.rating! : true;
+	};
+
+	const isMatchingPrice = (product: Product) => {
+		const { priceRange } = filters;
+		if (!priceRange) return true;
+
+		const priceRangeFilter = priceRange as keyof typeof productPriceRanges;
+		const priceRangeLimits = productPriceRanges[priceRangeFilter];
+
+		return Array.isArray(priceRangeLimits)
+			? product.price.discounted >= priceRangeLimits[0]! &&
+					product.price.discounted <= priceRangeLimits[1]
+			: product.price.discounted <= priceRangeLimits;
+	};
+
+	const getFilteredProducts = () => {
+		return products.filter(product => isMatchingPrice(product) && isMatchingRating(product));
+	};
+
+	const filteredProducts = getFilteredProducts();
 
 	return (
 		<>
